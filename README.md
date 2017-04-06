@@ -19,6 +19,15 @@ unzip AWS_Simple_Icons_EPS-SVG_v17.1.19.zip *.png -x __MACOSX/* */GRAYSCALE/*
 mv AWS_Simple_Icons_EPS-SVG_v17.1.19 terraform/aws_icons
 ```
 
+# Usage
+
+```shell-session
+terraform state pull > test.json
+cartgrapher test.json
+open Cartgrapher.png
+```
+
+
 # future (or never)
 
 - treats `AWS Subnet` and `AWS Security Group` more well (nesting GraphViz Cluster)
