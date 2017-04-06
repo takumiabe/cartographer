@@ -1,4 +1,4 @@
-# Cartgrapher:
+# Cartographer:
 
 network diagram generator for `terraform`
 
@@ -23,8 +23,8 @@ mv AWS_Simple_Icons_EPS-SVG_v17.1.19 terraform/aws_icons
 
 ```shell-session
 terraform state pull > test.json
-cartgrapher test.json
-open Cartgrapher.png
+cartographer test.json
+open Cartographer.png
 ```
 
 
