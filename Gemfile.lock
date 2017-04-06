@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    awesome_print (1.7.0)
+    ruby-graphviz (1.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  ruby-graphviz
+
+BUNDLED WITH
+   1.14.6

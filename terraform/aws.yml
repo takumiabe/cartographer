@@ -1,0 +1,131 @@
+aws_internet_gateway:
+  icon: 'aws_icons/Networking & Content Delivery/NetworkingContentDelivery_AmazonVPC_internetgateway.png'
+
+aws_alb:
+  icon: 'aws_icons/Compute/Compute_ElasticLoadBalancing_ApplicationLoadBalancer.png'
+
+aws_elb:
+  icon: 'aws_icons/Compute/Compute_ElasticLoadBalancing.png'
+
+aws_alb_target_group:
+  icon: 'aws_icons/Compute/Compute_AmazonEc2_AutoScaling.png'
+
+aws_instance:
+  icon: 'aws_icons/Compute/Compute_AmazonEC2_instance.png'
+
+aws_ami:
+  ignore: true
+  icon: 'aws_icons/Compute/Compute_AmazonEC2_AMI.png'
+
+aws_eip:
+  icon: 'aws_icons/Compute/Compute_AmazonEC2_ElasticIPaddress.png'
+
+aws_db_instance:
+  icon: 'aws_icons/Database/Database_AmazonRDS_DBInstance.png'
+
+aws_elasticache_cluster:
+  icon: 'aws_icons/Database/Database_AmazonElasticCache_Redis.png'
+
+aws_s3_bucket:
+  ignore: true
+  icon: 'aws_icons/Storage/Storage_AmazonS3_bucketwithobjects.png'
+
+aws_subnet:
+  subgraph_like: true
+  shape: point
+  typename: # VPC Subnet
+  subgraph:
+    label: cidr_block
+
+aws_security_group:
+  typename: Security Group
+  shape: none
+  label_renderer: :aws_security_group_label
+  edge:
+    label_is_key: false
+
+aws_db_subnet_group:
+  typename: RDS Subnet Group
+  shape: point
+
+aws_elasticache_subnet_group:
+  typename: ECache Subnet Group
+  shape: point
+
+aws_alb_target_group_attachment:
+  edge_like: true
+  edge:
+    from: target_group_arn
+    to: target_id
+    label: port
+
+aws_alb_listener:
+  shape: point
+  label: ''
+  inverse:
+    - load_balancer_arn
+
+aws_alb_listener_rule:
+  edge_like: true
+  edge:
+    from: listener_arn
+    to: action.0.target_group_arn
+    label: condition.0.values.0
+
+aws_vpc:
+  ignore: true
+  icon: 'aws_icons/Networking & Content Delivery/NetworkingContentDelivery_AmazonVPC.png'
+
+aws_internet_gateway:
+  ignore: true
+
+aws_route_table:
+  ignore: true
+  icon: 'aws_icons/Networking & Content Delivery/NetworkingContentDelivery_AmazonRoute53_routetable.png'
+
+aws_route_table_association:
+  ignore: true
+  edge_like: true
+  from: route_table_id
+  to: subnet_id
+
+aws_main_route_table:
+  ignore: true
+  icon: 'aws_icons/Networking & Content Delivery/NetworkingContentDelivery_AmazonRoute53_routetable.png'
+
+aws_main_route_table_association:
+  ignore: true
+
+aws_cloudwatch_metric_alarm:
+  ignore: true
+  icon: 'aws_icons/Management Tools/ManagementTools_AmazonCloudWatch_alarm.png'
+
+aws_sns_topic:
+  ignore: true
+  icon: 'aws_icons/Messaging/Messaging_AmazonSNS_topic.png'
+
+aws_s3_bucket_policy:
+  ignore: true
+
+aws_db_parameter_group:
+  ignore: true
+
+random_id:
+  ignore: true
+
+template_file:
+  ignore: true
+  draw_depends: true
+
+aws_caller_identity:
+  ignore: true
+
+aws_availability_zones:
+  ignore: true
+
+aws_elb_service_account:
+  ignore: true
+
+aws_iam_policy_document:
+  ignore: true
+  icon: 'aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_IAM_permissions.png'

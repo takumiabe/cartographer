@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+GEMFILE_PATH = File.expand_path('../Gemfile', __FILE__)
+if File.exist?(GEMFILE_PATH)
+  # Force the rails 3 application to use its Gemfile
+  ENV['BUNDLE_GEMFILE'] = GEMFILE_PATH
+  require 'bundler'
+  Bundler.setup
+  Bundler.require
+end
+
+require 'json'
+require 'yaml'
+
+require_relative 'terraform/cartograph'
+require_relative 'terraform/resource'
+require_relative 'terraform/module'
+require_relative 'terraform/attributes'
+
+json =
+  if ARGV.size == 0
+    `terraform state pull`
+  else
+    ARGF.read
+  end
+cart = Terraform::Cartograph.new(JSON.parse(json))
+cart.graphviz
