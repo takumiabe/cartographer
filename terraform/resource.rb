@@ -6,8 +6,13 @@ module Terraform
     def initialize(cart, name, json)
       @cart = cart
       self.name = name
-      self.id = json["primary"]["id"]
+
       self.type = json["type"].to_sym
+      self.id = if identity = DB.dig(type.to_s, 'identity')
+                  json["primary"]["attributes"][identity]
+                else
+                  json["primary"]["id"]
+                end
       @attributes = Attributes.new(json["primary"]["attributes"])
       @depends = json["depends_on"].uniq
       # @meta = json["primary"]["meta"]
