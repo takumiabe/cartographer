@@ -64,6 +64,7 @@ aws_alb_listener:
   label: ''
   inverse:
     - load_balancer_arn
+    - certificate_arn
 
 aws_alb_listener_rule:
   edge_like: true
@@ -106,6 +107,8 @@ aws_sns_topic:
 
 aws_s3_bucket_policy:
   ignore: true
+  icon: aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_IAM_permissions.png
+  draw_depends: true
 
 aws_db_parameter_group:
   ignore: true
@@ -129,3 +132,17 @@ aws_elb_service_account:
 aws_iam_policy_document:
   ignore: true
   icon: 'aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_IAM_permissions.png'
+  draw_depends: true
+
+aws_iam_user:
+  icon: aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_IAM.png
+
+aws_iam_server_certificate:
+  icon: aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_AWSCertificateManager_certificatemanager.png
+  identity: arn
+
+aws_iam_user_policy:
+  icon: aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_IAM_permissions.png
+
+aws_iam_access_key:
+  icon: aws_icons/Security Identity & Compliance/SecurityIdentityCompliance_IAM_addon.png
